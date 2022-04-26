@@ -57,7 +57,6 @@ See the [open issues](#) for a full list of proposed features (and known issues)
 - Twitter: [@frankhiggins08](https://twitter.com/frankhiggins08)
 - LinkedIn: [Frankline Osoro](http://www.linkedin.com/in/frankline-osoro-b526ba18b)
 
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
