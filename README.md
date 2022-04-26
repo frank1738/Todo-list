@@ -11,9 +11,6 @@
 - Javascript
 - Webpack
 
-## Live Demo (if available)
-
-[Live Demo Link](#)
 
 ## Getting Started
 
@@ -56,7 +53,6 @@ See the [open issues](#) for a full list of proposed features (and known issues)
 - GitHub: [@frank1738](https://github.com/frank1738)
 - Twitter: [@frankhiggins08](https://twitter.com/frankhiggins08)
 - LinkedIn: [Frankline Osoro](http://www.linkedin.com/in/frankline-osoro-b526ba18b)
-
 
 ## 🤝 Contributing
 
