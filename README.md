@@ -11,9 +11,6 @@
 - Javascript
 - Webpack
 
-## Live Demo (if available)
-
-[Live Demo Link](#)
 
 ## Getting Started
 
