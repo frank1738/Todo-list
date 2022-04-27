@@ -39,7 +39,7 @@ export const removeItem = (item) => {
     if (item.target.value === '') {
       const localtasks = JSON.parse(localStorage.getItem('tasks'));
       const filteredTasks = localtasks.filter((item) => {
-        (item) => item.index !== Number(div.id);
+        return item.index !== Number(div.id);
       });
       localStorage.setItem('tasks', JSON.stringify(filteredTasks));
       div.remove();
