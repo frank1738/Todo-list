@@ -3,36 +3,17 @@ const todoContainer = document.querySelector('.tasks');
 const divContainer = [];
 let prev = '';
 let prevInput = '';
-export const addTask = () => {
-  if (addData.value === '') {
-    return;
-  }
-  const localList = JSON.parse(localStorage.getItem('tasks'));
-  const task = {
-    description: addData.value,
-    completed: false,
-    index: localList.length + 1,
-  };
 
-  const taskElement = document.createElement('div');
-  taskElement.classList.add('task');
-  taskElement.setAttribute('id', task.index);
-  taskElement.innerHTML = `
-                <input type="checkbox" name="" id="${task.index}" class="check-box" />
-                <input type="text" class="description">
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                `;
-  const taskDescription = taskElement.querySelector('.description');
-  taskDescription.value = task.description;
-  todoContainer.appendChild(taskElement);
-  divContainer.push(taskElement);
-  divContainer.forEach((item) => {
-    const editText = item.querySelector('.description');
-    editText.addEventListener('click', removeItem);
-  });
-  localList.push(task);
-  localStorage.setItem('tasks', JSON.stringify(localList));
-  addData.value = '';
+const newIndex = () => {
+  let count = 1;
+  const myData = JSON.parse(localStorage.getItem('tasks'));
+  const remDivs = document.querySelectorAll('.task');
+  for (let i = 0; i < myData.length; i += 1) {
+    myData[i].index = count;
+    remDivs[i].setAttribute('id', count);
+    count += 1;
+  }
+  localStorage.setItem('tasks', JSON.stringify(myData));
 };
 
 export const removeItem = (item) => {
@@ -67,14 +48,34 @@ export const removeItem = (item) => {
   });
 };
 
-const newIndex = () => {
-  let count = 1;
-  const myData = JSON.parse(localStorage.getItem('tasks'));
-  const remDivs = document.querySelectorAll('.task');
-  for (let i = 0; i < myData.length; i += 1) {
-    myData[i].index = count;
-    remDivs[i].setAttribute('id', count);
-    count += 1;
+export const addTask = () => {
+  if (addData.value === '') {
+    return;
   }
-  localStorage.setItem('tasks', JSON.stringify(myData));
+  const localList = JSON.parse(localStorage.getItem('tasks'));
+  const task = {
+    description: addData.value,
+    completed: false,
+    index: localList.length + 1,
+  };
+
+  const taskElement = document.createElement('div');
+  taskElement.classList.add('task');
+  taskElement.setAttribute('id', task.index);
+  taskElement.innerHTML = `
+                <input type="checkbox" name="" id="${task.index}" class="check-box" />
+                <input type="text" class="description">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+                `;
+  const taskDescription = taskElement.querySelector('.description');
+  taskDescription.value = task.description;
+  todoContainer.appendChild(taskElement);
+  divContainer.push(taskElement);
+  divContainer.forEach((item) => {
+    const editText = item.querySelector('.description');
+    editText.addEventListener('click', removeItem);
+  });
+  localList.push(task);
+  localStorage.setItem('tasks', JSON.stringify(localList));
+  addData.value = '';
 };

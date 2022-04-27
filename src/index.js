@@ -1,6 +1,5 @@
 import './style.css';
-import { addTask } from './modules/addRemove.js';
-import { removeItem } from './modules/addRemove.js';
+import { addTask, removeItem } from './modules/addRemove.js';
 
 const addData = document.querySelector('.input');
 const todoContainer = document.querySelector('.tasks');
@@ -31,7 +30,7 @@ localStorage.setItem('tasks', JSON.stringify(taskList));
 
 submit.addEventListener('click', addTask);
 
-addData.addEventListener('keypress', function (e) {
+addData.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     addTask();
   }
