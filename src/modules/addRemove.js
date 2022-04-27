@@ -38,9 +38,9 @@ export const removeItem = (item) => {
   divIcon.addEventListener('click', () => {
     if (item.target.value === '') {
       const localtasks = JSON.parse(localStorage.getItem('tasks'));
-      const filteredTasks = localtasks.filter(
-        (item) => item.index !== Number(div.id)
-      );
+      const filteredTasks = localtasks.filter((item) => {
+        (item) => item.index !== Number(div.id);
+      });
       localStorage.setItem('tasks', JSON.stringify(filteredTasks));
       div.remove();
       newIndex();
