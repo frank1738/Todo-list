@@ -13,10 +13,22 @@ body {
 }
 
 .container {
-  width: 40%;
+  width: 30%;
   margin-top: 3rem;
   box-shadow: 0 0 10px gray;
   background-color: white;
+}
+
+.background {
+  background-color: whitesmoke;
+}
+
+.fa-solid {
+  cursor: pointer;
+}
+
+.fa-solid:hover {
+  color: black;
 }
 
 .input {
@@ -43,20 +55,25 @@ body {
   display: flex;
   align-items: center;
   padding: 0.7rem;
+  cursor: pointer;
 }
 
 .fa-arrow-down {
   justify-self: flex-end;
-  color: lightgray;
+  color: gray;
 }
 
 .fa-ellipsis-vertical {
-  color: lightgray;
+  color: gray;
+  margin-left: 2rem;
 }
 
 .description {
-  flex: 1;
   margin-left: 1rem;
+  width: 90%;
+  font-family: poppins, sans-serif;
+  border: none;
+  outline: none;
 }
 
 .clear {
@@ -76,7 +93,7 @@ body {
 }
 
 .fa-arrows-rotate {
-  color: lightgray;
+  color: gray;
 }
 
 .check-box {
