@@ -1,10 +1,14 @@
+import { Mark } from './interactive.js';
+
 const addData = document.querySelector('.input');
 const todoContainer = document.querySelector('.tasks');
 const divContainer = [];
 let prev = '';
 let prevInput = '';
+let prevDit = '';
+let prevDot = '';
 
-const newIndex = () => {
+export const newIndex = () => {
   let count = 1;
   const myData = JSON.parse(localStorage.getItem('tasks'));
   const remDivs = document.querySelectorAll('.task');
@@ -16,36 +20,25 @@ const newIndex = () => {
   localStorage.setItem('tasks', JSON.stringify(myData));
 };
 
-export const removeItem = (item) => {
+export const removeItem = (e) => {
+  const div = e.target.closest('div');
+  const Input = e.target;
+  const dotBtn = div.querySelector('.fa-ellipsis-vertical');
+  const deleteBtn = div.querySelector('.fa-trash-can');
   if (prev) {
-    const prevIcon = prev.querySelector('.fa-solid');
-    prevIcon.classList.remove('fa-trash-can');
+    prevDit.classList.add('hide');
+    prevDot.classList.remove('hide');
     prev.classList.remove('background');
     prevInput.classList.remove('background');
   }
-  const div = item.target.closest('div');
-  const divIcon = div.querySelector('.fa-solid');
-  divIcon.classList.add('fa-trash-can');
+  deleteBtn.classList.remove('hide');
+  dotBtn.classList.add('hide');
   div.classList.add('background');
-  item.target.classList.add('background');
-  prevInput = item.target;
+  Input.classList.add('background');
   prev = div;
-  item.target.addEventListener('input', (e) => {
-    const recentData = JSON.parse(localStorage.getItem('tasks'));
-    recentData[div.id - 1].description = e.target.value;
-    localStorage.setItem('tasks', JSON.stringify(recentData));
-  });
-  divIcon.addEventListener('click', () => {
-    if (item.target.value === '') {
-      const localtasks = JSON.parse(localStorage.getItem('tasks'));
-      const filteredTasks = localtasks.filter(
-        (item) => item.index !== Number(div.id)
-      );
-      localStorage.setItem('tasks', JSON.stringify(filteredTasks));
-      div.remove();
-      newIndex();
-    }
-  });
+  prevInput = Input;
+  prevDot = dotBtn;
+  prevDit = deleteBtn;
 };
 
 export const addTask = () => {
@@ -66,16 +59,49 @@ export const addTask = () => {
                 <input type="checkbox" name="" id="${task.index}" class="check-box" />
                 <input type="text" class="description">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
+                <i class="fa-solid fa-trash-can hide"></i>
                 `;
   const taskDescription = taskElement.querySelector('.description');
   taskDescription.value = task.description;
   todoContainer.appendChild(taskElement);
   divContainer.push(taskElement);
   divContainer.forEach((item) => {
-    const editText = item.querySelector('.description');
-    editText.addEventListener('click', removeItem);
+    const deleteBtn = item.querySelector('.fa-trash-can');
+    const chekBox = item.querySelector('.check-box');
+    chekBox.addEventListener('change', Mark);
+    const Input = item.querySelector('.description');
+    Input.addEventListener('click', removeItem);
+    Input.addEventListener('input', updateLocal);
+    deleteBtn.addEventListener('click', deleteData);
+    Input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        deleteData(e);
+      }
+    });
   });
   localList.push(task);
   localStorage.setItem('tasks', JSON.stringify(localList));
   addData.value = '';
+};
+
+export const deleteData = (e) => {
+  const div = e.target.closest('div');
+  const key = Number(div.id);
+  const Input = div.querySelector('.description');
+  if (Input.value !== '') {
+    return;
+  }
+  const localData = JSON.parse(localStorage.getItem('tasks'));
+  const filtered = localData.filter((item) => item.index !== key);
+  localStorage.setItem('tasks', JSON.stringify(filtered));
+  div.remove();
+  newIndex();
+};
+
+export const updateLocal = (e) => {
+  const div = e.target.closest('div');
+  const key = Number(div.id);
+  const localData = JSON.parse(localStorage.getItem('tasks'));
+  localData[key - 1].description = e.target.value;
+  localStorage.setItem('tasks', JSON.stringify(localData));
 };

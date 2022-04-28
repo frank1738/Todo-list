@@ -83,6 +83,9 @@ body {
   background-color: lightgray;
   color: grey;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .head-section {
@@ -99,4 +102,24 @@ body {
 .check-box {
   width: 1rem;
   height: 1rem;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.mark {
+  text-decoration: line-through;
+}
+
+.del {
+  width: 44%;
+  padding: 0;
+  border: 1px solid transparent;
+}
+
+.del:hover {
+  color: black;
+  border-bottom: 1px solid black;
 }
