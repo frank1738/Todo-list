@@ -13,7 +13,6 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](#)
 
 ## Getting Started
 
@@ -35,13 +34,13 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone git@github.com:frank1738/Awesome-books.git
+   git clone https://github.com/frank1738/Todo-list.git
    ```
-2. Install NPM packages
+2. Install webpack packages by runing npm install --save-dev webpack on your command line
    ```sh
    npm install
    ```
-3. Open the index.html file on your browser
+3. run npn start  on your command line
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
