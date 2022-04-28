@@ -1,10 +1,16 @@
 import './style.css';
-import { addTask, removeItem } from './modules/addRemove.js';
+import {
+  addTask,
+  removeItem,
+  updateLocal,
+  deleteData,
+} from './modules/addRemove.js';
+import { Mark, deletAll } from './modules/interactive.js';
 
 const addData = document.querySelector('.input');
 const todoContainer = document.querySelector('.tasks');
 const submit = document.querySelector('.fa-arrow-down');
-
+const deletAllItems = document.querySelector('.del');
 const loadTasks = () => {
   if (!localStorage.getItem('tasks')) {
     const taskList = [];
@@ -19,12 +25,28 @@ const loadTasks = () => {
                     <input type="checkbox" name="" id="${localItems[i].index}" class="check-box" />
                     <input type="text" class="description">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <i class="fa-solid fa-trash-can hide"></i>
                     `;
       const taskDescription = taskElement.querySelector('.description');
       taskDescription.value = localItems[i].description;
       todoContainer.appendChild(taskElement);
-      const edit = taskElement.querySelector('.description');
-      edit.addEventListener('click', removeItem);
+      const Input = taskElement.querySelector('.description');
+      const checkBox = taskElement.querySelector('.check-box');
+      checkBox.addEventListener('change', Mark);
+      if (localItems[i].completed === true) {
+        checkBox.checked = true;
+        Input.classList.toggle('mark');
+      }
+      const deleteBtn = taskElement.querySelector('.fa-trash-can');
+
+      Input.addEventListener('click', removeItem);
+      Input.addEventListener('input', updateLocal);
+      deleteBtn.addEventListener('click', deleteData);
+      Input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          deleteData(e);
+        }
+      });
     }
   }
 };
@@ -36,4 +58,6 @@ addData.addEventListener('keypress', (e) => {
     addTask();
   }
 });
+deletAllItems.addEventListener('click', deletAll);
+
 loadTasks();
