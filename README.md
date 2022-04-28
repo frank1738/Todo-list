@@ -36,11 +36,14 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/frank1738/Todo-list.git
    ```
-2. Install webpack packages by runing npm install --save-dev webpack on your command line
+2. Install webpack packages --save-dev webpack on your command line
    ```sh
-   npm install
+   --save-dev webpack 
    ```
-3. run npn start  on your command line
+   Run command 
+   ```sh
+3. npm start 
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
