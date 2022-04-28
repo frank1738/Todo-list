@@ -13,7 +13,6 @@
 
 ## Live Demo (if available)
 
-
 ## Getting Started
 
 **This is an example of how you may give instructions on setting up your project locally.**
@@ -36,13 +35,13 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/frank1738/Todo-list.git
    ```
-2. Install webpack packages --save-dev webpack on your command line
+2. Install webpack packages
    ```sh
-   --save-dev webpack 
+   --save-dev webpack
    ```
-   Run command 
+3. Run command
    ```sh
-3. npm start 
+   npm start
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
