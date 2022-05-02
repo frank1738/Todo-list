@@ -88,9 +88,6 @@ export const deleteData = (e) => {
   const div = e.target.closest('div');
   const key = Number(div.id);
   const Input = div.querySelector('.description');
-  if (Input.value !== '') {
-    return;
-  }
   const localData = JSON.parse(localStorage.getItem('tasks'));
   const filtered = localData.filter((item) => item.index !== key);
   localStorage.setItem('tasks', JSON.stringify(filtered));
