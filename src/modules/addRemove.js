@@ -8,6 +8,19 @@ let prevInput = '';
 let prevDit = '';
 let prevDot = '';
 
+export const createBook = () => {
+  const taskElement = document.createElement('div');
+  taskElement.classList.add('task');
+  taskElement.setAttribute('id', localItems[i].index);
+  taskElement.innerHTML = `
+                    <input type="checkbox" name="" id="${localItems[i].index}" class="check-box" />
+                    <input type="text" class="description">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <i class="fa-solid fa-trash-can hide"></i>
+                    `;
+  return taskElement;
+};
+
 export const newIndex = () => {
   let count = 1;
   const myData = JSON.parse(localStorage.getItem('tasks'));
@@ -52,15 +65,7 @@ export const addTask = () => {
     index: localList.length + 1,
   };
 
-  const taskElement = document.createElement('div');
-  taskElement.classList.add('task');
-  taskElement.setAttribute('id', task.index);
-  taskElement.innerHTML = `
-                <input type="checkbox" name="" id="${task.index}" class="check-box" />
-                <input type="text" class="description">
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <i class="fa-solid fa-trash-can hide"></i>
-                `;
+  const taskElement = createBook();
   const taskDescription = taskElement.querySelector('.description');
   taskDescription.value = task.description;
   todoContainer.appendChild(taskElement);

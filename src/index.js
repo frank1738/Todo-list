@@ -4,6 +4,7 @@ import {
   removeItem,
   updateLocal,
   deleteData,
+  createBook,
 } from './modules/addRemove.js';
 import { Mark, deletAll } from './modules/interactive.js';
 
@@ -18,15 +19,7 @@ const loadTasks = () => {
   } else {
     const localItems = JSON.parse(localStorage.getItem('tasks'));
     for (let i = 0; i < localItems.length; i += 1) {
-      const taskElement = document.createElement('div');
-      taskElement.classList.add('task');
-      taskElement.setAttribute('id', localItems[i].index);
-      taskElement.innerHTML = `
-                    <input type="checkbox" name="" id="${localItems[i].index}" class="check-box" />
-                    <input type="text" class="description">
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                    <i class="fa-solid fa-trash-can hide"></i>
-                    `;
+      const taskElement=createBook()
       const taskDescription = taskElement.querySelector('.description');
       taskDescription.value = localItems[i].description;
       todoContainer.appendChild(taskElement);
