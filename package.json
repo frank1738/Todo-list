@@ -6,9 +6,8 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve --open",
-    "test": "jest --coverage",
-    "deploy": "gh-pages -d dist",
-    "coverage": "jest --collect-coverage"
+    "test": "jest",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
