@@ -1,3 +1,5 @@
 webpack.config.js
 *.json
 modules/
+__mocks__/
+addRemove.test.js
