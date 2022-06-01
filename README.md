@@ -1,6 +1,9 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Todo List
+# Todo List app
+
+![image](https://user-images.githubusercontent.com/98453979/171440892-b688e788-3309-4755-a17e-3535c41d8dfa.png)
+
 
 > Getting started with webpack
 
