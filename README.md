@@ -2,8 +2,7 @@
 
 # Todo List app
 
-![image](https://user-images.githubusercontent.com/98453979/171440892-b688e788-3309-4755-a17e-3535c41d8dfa.png)
-
+![image](https://user-images.githubusercontent.com/98453979/171441885-df6f8c55-a63f-4186-9a42-09feaf26d94f.png)
 
 > Getting started with webpack
 
