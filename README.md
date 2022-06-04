@@ -37,9 +37,6 @@ In this version of the Todo list app, the user will be getting four options
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 To get a local copy up and running follow these simple example steps.
 
 - npm
@@ -61,16 +58,19 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm start
    ```
+4. Testing
+   ```sh
+   npm run test
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 
-See the [open issues](#) for a full list of proposed features (and known issues).
 
-## Authors
+## Author
 
-👤 **Author1**
+👤 **Frankline Osoro**
 
 - GitHub: [@frank1738](https://github.com/frank1738)
 - Twitter: [@frankhiggins08](https://twitter.com/frankhiggins08)
